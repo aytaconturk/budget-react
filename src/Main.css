@@ -1,0 +1,112 @@
+body {
+    background-color: #fff !important;
+}
+
+.main {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    border: 1px solid #eff3f4;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.header {
+    background-color: #f0f1f3;
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
+    bottom: 0;
+}
+
+.header .menu {
+    display: flex;
+}
+
+.nav {
+    padding-left: -16px !important;
+    padding-right: -16px !important;
+}
+
+.nav.menu {
+    margin-left: -16px !important;
+    padding-right: -16px !important;
+    border-radius: 3px;
+}
+
+.nav.menu .nav-link {
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 19%);
+    color: #222;
+    background-color: #fff;
+}
+
+.nav-link.active {
+    color: #fff !important;
+    background-color: #4b918c !important;
+}
+
+.content {
+    height: calc(100vh - 51px);
+}
+
+.border-green {
+    border-color: #4b918c !important;
+}
+
+.border-green-light {
+    border-color: #bdd7d5 !important;
+}
+
+.balance .badge {
+    display: block;
+    padding: 1em 3em;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.badge-success {
+    color: #589591 !important;
+    background-color: #ecf3f3 !important;
+}
+
+.badge-danger {
+    color: #f95b51 !important;
+    background-color: #feefee !important;
+}
+
+.content-list .card {
+    background-color: #FCFCFC;
+}
+
+.font-weight-bold {
+    font-weight: 700!important;
+}
+
+.price-expense {
+    color: #FD3C4A;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.transaction-sub-info {
+    font-size: 13px;
+    font-weight: 500;
+    color: #91919F;
+}
+
+.category-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 20%);
+    border-radius: 12px;
+    padding: 10px;
+}
