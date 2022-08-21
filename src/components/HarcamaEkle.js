@@ -1,7 +1,38 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api"
+import SecimKutusu from "./SecimKutusu";
 
 const HarcamaEkle = () => {
+
+    const [kategoriListesi, setKategoriListesi] = useState([]);
+
+    const veri = () => {
+
+        new Promise((resolve) => {
+            let url = "/kategoriler/kategori-listesi";
+
+            api()
+                .get(url)
+                .then((yanit) => {
+                    console.log("yanit: ", yanit)
+                    setKategoriListesi(yanit.data.map(e => {
+                        return (
+                            {
+                                value: e.id,
+                                id: e.id,
+                                label: e.kategoriAdi,
+                                kategoriAdi: e.kategoriAdi
+                            }
+                        )
+                    }))
+                })
+        })
+    }
+
+    useEffect(() => {
+        veri()
+    }, [])
 
     const yonlendir = useNavigate();
 
@@ -15,7 +46,7 @@ const HarcamaEkle = () => {
         let veri = {
             //id: 1,
             kullaniciId: 1,
-            kategoriId: 1,
+            kategoriId: 4,
             baslik: document.getElementById("baslik")?.value,
             tutar: document.getElementById("tutar")?.value,
             aciklama: document.getElementById("aciklama")?.value,
@@ -45,10 +76,8 @@ const HarcamaEkle = () => {
                 <div className="card-body py-1">
                     <form onSubmit={onSubmit}>
                         <div className="form-group mt-2 mb-3">
-                            <label htmlFor="exampleFormControlSelect1">Kategori</label>
-                            <select className="form-control">
-                                <option>Seçiniz</option>
-                            </select>
+                            <label>Kategori</label>
+                            <SecimKutusu options={kategoriListesi} />
                         </div>
 
                         <div className="form-group">
