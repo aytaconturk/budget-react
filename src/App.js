@@ -6,12 +6,12 @@ import TarihFiltreleme from "./components/TarihFiltreleme";
 function App() {
   return (
     <div className="App">
-      <div class="main">
+      <div className="main">
         <Menu />
-        <div class="content">
-          <div class="container-sm pt-3">
+        <div className="content">
+          <div className="container-sm pt-3">
             <Hesap />
-            <div class="content-list mt-2">
+            <div className="content-list mt-2">
               <TarihFiltreleme />
               <Harcamalar />
             </div>

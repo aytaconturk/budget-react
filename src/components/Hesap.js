@@ -1,22 +1,22 @@
 const Hesap = () => {
     return (
-        <div class="balance">
-            <div class="card border-green">
-                <div class="card-header border-green-light">
+        <div className="balance">
+            <div className="card border-green">
+                <div className="card-header border-green-light">
                     <span>Total Balance
-                        <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        <i className="fa fa-angle-down" aria-hidden="true"></i></span>
                     <h4>2500</h4>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Income </h5>
-                            <span type="button" class="badge badge-success" data-toggle="modal"
+                <div className="card-body">
+                    <div className="row">
+                        <div className="col-6">
+                            <h5 className="card-title">Income </h5>
+                            <span type="button" className="badge badge-success" data-toggle="modal"
                                 data-target="#incomeModal">400$</span>
                         </div>
-                        <div class="col-6">
-                            <h5 class="card-title">Expense</h5>
-                            <span class="badge badge-danger">1400$</span>
+                        <div className="col-6">
+                            <h5 className="card-title">Expense</h5>
+                            <span className="badge badge-danger">1400$</span>
                         </div>
                     </div>
                 </div>

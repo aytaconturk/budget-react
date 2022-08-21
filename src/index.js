@@ -11,6 +11,9 @@ import NotFound from './NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './fontawesome/css/font-awesome.min.css'
 import './Main.css'
+import HarcamaEklemeSayfasi from './sayfalar/HarcamaEklemeSayfasi';
+import Kategoriler from './sayfalar/Kategoriler';
+import Kullanici from './sayfalar/Kullanici';
 
 const root = document.getElementById('root');
 
@@ -19,6 +22,9 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/harcama-ekle" element={<HarcamaEklemeSayfasi />} />
+        <Route path="/kategoriler" element={<Kategoriler />} />
+        <Route path="/kullanici" element={<Kullanici />} />
         <Route path="*" element={<NotFound />} />
         {/* <Route path="expenses" element={<Expenses />} /> */}
         {/* <Route path="invoices" element={<Invoices />} /> */}

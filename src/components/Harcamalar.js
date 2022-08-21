@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api";
-
+import moment from 'moment';
+import 'moment/locale/tr';
 
 const Harcamalar = () => {
 
@@ -13,7 +14,6 @@ const Harcamalar = () => {
             api()
                 .get(url)
                 .then((yanit) => {
-                    console.log("yanit: ", yanit)
                     setHarcamalarVeri(yanit.data)
                 })
         })
@@ -28,36 +28,38 @@ const Harcamalar = () => {
             {
                 harcamalarVeri.map(veri => {
                     return (
-                        <div class="card">
-                            <div class="card-body py-1">
-                                <div class="row align-items-center">
-                                    <div class="col-2">
-                                        <div class="category-icon">
-                                            <i class="fa fa-cutlery" aria-hidden="true"></i>
+                        <div key={veri.id} className="card mb-2">
+                            <div className="card-body py-1">
+                                <div className="row align-items-center">
+                                    <div className="col-2">
+                                        <div className="category-icon">
+                                            <i className="fa fa-cutlery" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <div class="col-10">
-                                        <div class="row mb-1">
-                                            <div class="col-12">
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="transaction-category font-weight-bold">
+                                    <div className="col-10">
+                                        <div className="row mb-1">
+                                            <div className="col-12">
+                                                <div className="d-flex justify-content-between">
+                                                    <div className="transaction-category font-weight-bold">
                                                         {veri.baslik}
                                                     </div>
-                                                    <div class="price-expense">
+                                                    <div className="price-expense">
                                                         <span>-</span> {veri.tutar}
                                                         <span>₺</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row transaction-sub-info">
-                                            <div class="col-12">
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="transaction-title">
+                                        <div className="row transaction-sub-info">
+                                            <div className="col-12">
+                                                <div className="d-flex justify-content-between">
+                                                    <div className="transaction-title">
                                                         Salary for July
                                                     </div>
-                                                    <div class="transaction-date">
-                                                        14:30
+                                                    <div className="transaction-date">
+                                                        {
+                                                            moment(veri.tarih).calendar()
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
