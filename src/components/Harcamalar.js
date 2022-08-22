@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { api } from "../api";
 import moment from 'moment';
 import 'moment/locale/tr';
+import EnparaLogo from '../images/banka/enpara.svg';
+import EnparaLogo2 from '../images/banka/enpara1.svg';
+import VakifbankLogo from '../images/banka/vakifbank.png';
 
 const Harcamalar = () => {
 
@@ -14,6 +17,7 @@ const Harcamalar = () => {
             api()
                 .get(url)
                 .then((yanit) => {
+                    console.log("yanit: ", yanit)
                     setHarcamalarVeri(yanit.data)
                 })
         })
@@ -23,6 +27,8 @@ const Harcamalar = () => {
         veri();
     }, [])
 
+    console.log("harcamalarVeri: ", harcamalarVeri);
+
     return (
         <>
             {
@@ -31,9 +37,9 @@ const Harcamalar = () => {
                         <div key={veri.id} className="card mb-2">
                             <div className="card-body py-1">
                                 <div className="row align-items-center">
-                                    <div className="col-2">
+                                    <div className="col-2 p-0">
                                         <div className="category-icon">
-                                            <i className="fa fa-cutlery" aria-hidden="true"></i>
+                                            <img style={{maxWidth: '60px', maxHeight: '20px'}} src={VakifbankLogo} alt="" />
                                         </div>
                                     </div>
                                     <div className="col-10">
@@ -54,7 +60,7 @@ const Harcamalar = () => {
                                             <div className="col-12">
                                                 <div className="d-flex justify-content-between">
                                                     <div className="transaction-title">
-                                                        Salary for July
+                                                        <em> Salary for July</em>
                                                     </div>
                                                     <div className="transaction-date">
                                                         {

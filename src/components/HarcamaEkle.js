@@ -46,7 +46,7 @@ const HarcamaEkle = () => {
         let veri = {
             //id: 1,
             kullaniciId: 1,
-            kategoriId: 4,
+            kategori: { id: 1 },
             baslik: document.getElementById("baslik")?.value,
             tutar: document.getElementById("tutar")?.value,
             aciklama: document.getElementById("aciklama")?.value,
@@ -58,7 +58,7 @@ const HarcamaEkle = () => {
 
         new Promise((resolve) => {
             let url = "/harcamalar/harcama-ekle";
-             
+
             api()
                 .post(url, veri)
                 .then((yanit) => {
