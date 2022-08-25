@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api"
+import FotografdanYaziOkuma from "./FotografdanYaziOkuma";
 import SecimKutusu from "./SecimKutusu";
 
 const HarcamaEkle = () => {
@@ -110,6 +111,8 @@ const HarcamaEkle = () => {
                             <button type="submit" className="btn btn-primary px-5">Kaydet</button>
                         </div>
                     </form>
+                    <hr className="mt-5"/>
+                    <FotografdanYaziOkuma />
                 </div>
             </div>
         </>
