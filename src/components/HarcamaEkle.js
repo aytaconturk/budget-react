@@ -47,7 +47,7 @@ const HarcamaEkle = () => {
         let veri = {
             //id: 1,
             kullaniciId: 1,
-            kategori: { id: 1 },
+            kategoriId: 5,
             baslik: document.getElementById("baslik")?.value,
             tutar: document.getElementById("tutar")?.value,
             aciklama: document.getElementById("aciklama")?.value,
