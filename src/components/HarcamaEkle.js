@@ -7,7 +7,8 @@ import SecimKutusu from "./SecimKutusu";
 const HarcamaEkle = () => {
 
     const [kategoriListesi, setKategoriListesi] = useState([]);
-
+    const [selectedKategori, setSelectedKategori] = useState(null)
+console.log("selectedKategori: ", selectedKategori)
     const veri = () => {
 
         new Promise((resolve) => {
@@ -47,7 +48,7 @@ const HarcamaEkle = () => {
         let veri = {
             //id: 1,
             kullaniciId: 1,
-            kategoriId: 5,
+            kategoriId: selectedKategori !== null ? selectedKategori?.value : null,
             baslik: document.getElementById("baslik")?.value,
             tutar: document.getElementById("tutar")?.value,
             aciklama: document.getElementById("aciklama")?.value,
@@ -78,7 +79,7 @@ const HarcamaEkle = () => {
                     <form onSubmit={onSubmit}>
                         <div className="form-group mt-2 mb-3">
                             <label>Kategori</label>
-                            <SecimKutusu options={kategoriListesi} />
+                            <SecimKutusu options={kategoriListesi} onChange={e => setSelectedKategori(e)} />
                         </div>
 
                         <div className="form-group">
