@@ -12,7 +12,7 @@ const Kullanici = () => {
                         <div className="card">
                             <div className="card-body py-2">
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">E-mail</label>
+                                    <label>E-mail</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1"
                                         value="aytconturk@gmail.com" readonly />
                                 </div>
@@ -21,7 +21,7 @@ const Kullanici = () => {
                         <div className="card mt-3">
                             <div className="card-body py-2">
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Şifre Güncelle</label>
+                                    <label>Şifre Güncelle</label>
                                     <button className="btn btn-secondary btn-sm">Güncelle</button>
                                 </div>
                             </div>

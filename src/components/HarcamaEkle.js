@@ -7,9 +7,34 @@ import SecimKutusu from "./SecimKutusu";
 const HarcamaEkle = () => {
 
     const [kategoriListesi, setKategoriListesi] = useState([]);
+    const [hesapListesi, setHesapListesi] = useState([]);
+
     const [selectedKategori, setSelectedKategori] = useState(null)
-console.log("selectedKategori: ", selectedKategori)
-    const veri = () => {
+    const [selectedHesap, setSelectedHesap] = useState(null)
+
+    const hesapApiVeri = () => {
+
+        new Promise((resolve) => {
+            let url = "/hesaplar/hesap-listesi";
+
+            api()
+                .get(url)
+                .then((yanit) => {
+                    console.log("hesap yanit: ", yanit)
+                    setHesapListesi(yanit.data.map(e => {
+                        return (
+                            {
+                                value: e.id,
+                                id: e.id,
+                                label: e.adi + " " + e.bakiye + e.paraBirimi,
+                            }
+                        )
+                    }))
+                })
+        })
+    }
+
+    const kategoriApiVeri = () => {
 
         new Promise((resolve) => {
             let url = "/kategoriler/kategori-listesi";
@@ -17,7 +42,7 @@ console.log("selectedKategori: ", selectedKategori)
             api()
                 .get(url)
                 .then((yanit) => {
-                    console.log("yanit: ", yanit)
+                    console.log("kategori yanit: ", yanit)
                     setKategoriListesi(yanit.data.map(e => {
                         return (
                             {
@@ -33,7 +58,8 @@ console.log("selectedKategori: ", selectedKategori)
     }
 
     useEffect(() => {
-        veri()
+        kategoriApiVeri()
+        hesapApiVeri()
     }, [])
 
     const yonlendir = useNavigate();
@@ -46,7 +72,7 @@ console.log("selectedKategori: ", selectedKategori)
         console.log("baslik gonder: ", document.getElementById("baslik")?.value)
 
         let veri = {
-            //id: 1,
+            hesapId: 1,
             kullaniciId: 1,
             kategoriId: selectedKategori !== null ? selectedKategori?.value : null,
             baslik: document.getElementById("baslik")?.value,
@@ -77,6 +103,10 @@ console.log("selectedKategori: ", selectedKategori)
             <div className="card">
                 <div className="card-body py-1">
                     <form onSubmit={onSubmit}>
+                    <div className="form-group mt-2 mb-3">
+                            <label>Ödeme Hesabı</label>
+                            <SecimKutusu options={hesapListesi} onChange={e => setSelectedHesap(e)} />
+                        </div>
                         <div className="form-group mt-2 mb-3">
                             <label>Kategori</label>
                             <SecimKutusu options={kategoriListesi} onChange={e => setSelectedKategori(e)} />
