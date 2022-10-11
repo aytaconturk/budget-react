@@ -24,8 +24,8 @@ const HarcamaEkle = () => {
                     setHesapListesi(yanit.data.map(e => {
                         return (
                             {
-                                value: e.id,
-                                id: e.id,
+                                value: e.hesapId,
+                                id: e.hesapId,
                                 label: e.adi + " " + e.bakiye + e.paraBirimi,
                             }
                         )
@@ -72,7 +72,7 @@ const HarcamaEkle = () => {
         console.log("baslik gonder: ", document.getElementById("baslik")?.value)
 
         let veri = {
-            hesapId: 1,
+            hesapId: selectedHesap !== null ? selectedHesap?.value : null,
             kullaniciId: 1,
             kategoriId: selectedKategori !== null ? selectedKategori?.value : null,
             baslik: document.getElementById("baslik")?.value,
