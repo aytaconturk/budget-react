@@ -46,8 +46,8 @@ const HarcamaEkle = () => {
                     setKategoriListesi(yanit.data.map(e => {
                         return (
                             {
-                                value: e.id,
-                                id: e.id,
+                                value: e.kategoriId,
+                                id: e.kategoriId,
                                 label: e.kategoriAdi,
                                 kategoriAdi: e.kategoriAdi
                             }
