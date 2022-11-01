@@ -2,10 +2,14 @@ import Menu from "../components/Menu";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useEffect, useState } from "react";
 import { api } from "../api";
+import SecimKutusu from "../components/SecimKutusu";
+import { hesapIkonListesi } from "../components/hesapIkonListesi";
 
 const Hesaplar = () => {
     const [hesaplarVeri, setHesaplarVeri] = useState([]);
     const [veriGuncelle, setVeriGuncelle] = useState(false);
+
+    const [selectedIkon, setSelectedIkon] = useState(null)
 
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
@@ -15,7 +19,8 @@ const Hesaplar = () => {
 
         let veri = {
             adi: document.getElementById("kategoriAdi")?.value,
-            kullaniciId: 1
+            kullaniciId: 1,
+            ikonId: selectedIkon !== null && typeof(selectedIkon) !== "undefined" ? selectedIkon.value : null
         }
 
         console.log("veri: ", veri)
@@ -45,6 +50,18 @@ const Hesaplar = () => {
                     setVeriGuncelle(false);
                 })
         })
+
+        new Promise((resolve) => {
+            let url = "/hesaplar/hesap-bilgisi/1";
+
+            api()
+                .get(url)
+                .then((yanit) => {
+                    console.log("hesap-bilgisi yanit: ", yanit.data)
+                    //setHesaplarVeri(yanit.data)
+                    //setVeriGuncelle(false);
+                })
+        })
     }
 
     useEffect(() => {
@@ -69,7 +86,7 @@ const Hesaplar = () => {
                                 hesaplarVeri.map(e => {
                                     return (
                                         <li key={e.id} className="list-group-item d-flex justify-content-between align-items-center">
-                                            {e.adi}
+                                            {e.adi + " " + e.bakiye + e.paraBirimi}
                                             <div>
                                                 <span type="button" className="text-primary me-2"><i className="fa fa-pencil" aria-hidden="true"></i></span>
                                                 <span type="button" className="text-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -89,13 +106,17 @@ const Hesaplar = () => {
             </div>
 
             <Modal isOpen={modal} toggle={toggle} backdrop="static" centered={true}>
-                <ModalHeader toggle={toggle}>Kategori Ekle</ModalHeader>
+                <ModalHeader toggle={toggle}>Hesap Ekle</ModalHeader>
                 <form onSubmit={onSubmit}>
                     <ModalBody>
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Kategori Adi: </label>
+                            <label htmlFor="exampleInputEmail1">Hesap Adi: </label>
                             <input required type="text" className="form-control" id="kategoriAdi"
-                                placeholder="Yemek" />
+                                placeholder="Enpara" />
+                        </div>
+                        <div className="form-group mt-2 mb-3">
+                            <label>Hesap İkonu</label>
+                            <SecimKutusu options={hesapIkonListesi} onChange={e => setSelectedIkon(e)} />
                         </div>
                     </ModalBody>
                     <ModalFooter>
