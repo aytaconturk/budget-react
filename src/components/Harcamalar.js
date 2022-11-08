@@ -32,7 +32,16 @@ const Harcamalar = () => {
     <>
       {harcamalarVeri.map((veri) => {
         return (
-          <div key={veri.id} className="card mb-2">
+          <div
+            key={veri.id}
+            className={
+              veri.harcamaTipi === 0
+                ? "card mb-2 border-expense"
+                : veri.harcamaTipi === 1
+                ? "card mb-2 border-income"
+                : "card mb-2"
+            }
+          >
             <div className="card-body py-1">
               <div className="row align-items-center">
                 <div className="col-2 p-0">
@@ -65,10 +74,17 @@ const Harcamalar = () => {
                         <div className="transaction-category font-weight-bold">
                           {veri.baslik}
                         </div>
-                        <div className="price-expense">
-                          <span>-</span> {veri.tutar}
-                          <span>₺</span>
-                        </div>
+                        {veri.harcamaTipi === 0 ? (
+                          <div className="price-expense">
+                            <span>-</span> {veri.tutar}
+                            <span>₺</span>
+                          </div>
+                        ) : (
+                          <div className="price-income">
+                            {veri.tutar}
+                            <span>₺</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
