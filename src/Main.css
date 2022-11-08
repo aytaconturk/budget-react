@@ -99,6 +99,12 @@ body {
     font-weight: 600;
 }
 
+.price-income {
+    color: #7ed321;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 .transaction-sub-info {
     font-size: 13px;
     font-weight: 500;
@@ -119,4 +125,12 @@ body {
     .category-icon img {
         max-width: 22px !important;
     }
+}
+
+.border-income {
+    border-color: #c7ddca !important;
+}
+
+.border-expense {
+    border-color: #edd7d5 !important;
 }
