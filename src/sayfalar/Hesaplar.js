@@ -104,11 +104,14 @@ const Hesaplar = () => {
     e.preventDefault();
 
     new Promise((resolve) => {
-        let url = "/hesaplar/hesap-gelir-ekle";
+        let url = "/harcamalar/gelir-ekle";
 
         let veri = {
             hesapId: seciliHesap,
-            gelir: gelirMiktari
+            tutar: gelirMiktari,
+            baslik: "Gelir",
+            tarih: new Date(),
+            kullaniciId: 1
         }
   
         api()
