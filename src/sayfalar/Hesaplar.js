@@ -109,7 +109,7 @@ const Hesaplar = () => {
         let veri = {
             hesapId: seciliHesap,
             tutar: gelirMiktari,
-            baslik: "Gelir",
+            baslik: document.getElementById("gelirBasligi")?.value,
             tarih: new Date(),
             kullaniciId: 1
         }
@@ -230,6 +230,16 @@ const Hesaplar = () => {
         </ModalHeader>
         <form onSubmit={gelirEkle}>
           <ModalBody>
+          <div className="form-group mb-3">
+              <label htmlFor="exampleInputEmail1">Başlık: </label>
+              <input
+                required
+                type="text"
+                className="form-control"
+                id="gelirBasligi"
+                placeholder="Gelir"
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Gelir Miktarı: </label>
               <input
