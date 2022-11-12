@@ -134,3 +134,12 @@ body {
 .border-expense {
     border-color: #edd7d5 !important;
 }
+
+.balance .accordion-header .accordion-button {
+    background-color: #00000008 !important;
+}
+
+.balance .accordion-header .accordion-button:focus {
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
+}
