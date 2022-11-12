@@ -61,11 +61,11 @@ const Hesap = () => {
                 <i className="fa fa-angle-down" aria-hidden="true"></i>
               </span>
               {gelirTutari - harcamaTutari < 0 ? (
-                <h4 className="text-danger">{gelirTutari - harcamaTutari}</h4>
+                <h4 className="text-danger">{gelirTutari - harcamaTutari}₺</h4>
               ) : gelirTutari - harcamaTutari > 0 ? (
-                <h4 className="text-success">{gelirTutari - harcamaTutari}</h4>
+                <h4 className="text-success">{gelirTutari - harcamaTutari}₺</h4>
               ) : (
-                <h4 className="text-gray">{gelirTutari - harcamaTutari}</h4>
+                <h4 className="text-gray">{gelirTutari - harcamaTutari}₺</h4>
               )}
             </div>
           </AccordionHeader>
