@@ -15,6 +15,7 @@ import HarcamaEklemeSayfasi from './sayfalar/HarcamaEklemeSayfasi';
 import Kategoriler from './sayfalar/Kategoriler';
 import Kullanici from './sayfalar/Kullanici';
 import Hesaplar from './sayfalar/Hesaplar';
+import HarcamaGoruntulemeSayfasi from './sayfalar/HarcamaGoruntulemeSayfasi';
 
 const root = document.getElementById('root');
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/harcama-ekle" element={<HarcamaEklemeSayfasi />} />
+        <Route path="/harcama-goruntule" element={<HarcamaGoruntulemeSayfasi />} />
         <Route path="/kategoriler" element={<Kategoriler />} />
         <Route path="/hesaplar" element={<Hesaplar />} />
         <Route path="/kullanici" element={<Kullanici />} />
