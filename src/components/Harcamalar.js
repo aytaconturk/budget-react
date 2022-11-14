@@ -189,9 +189,9 @@ const harcamaData = [
 const Harcamalar = () => {
   const [harcamalarVeri, setHarcamalarVeri] = useState([]);
 
-  const veri = () =>
+  const veri = (harcamaTipi) =>
     new Promise((resolve) => {
-      let url = "/harcamalar/harcama-listesi";
+      let url = "/harcamalar/harcama-listesi/" + 0;
 
       api()
         .get(url)
@@ -213,7 +213,7 @@ const Harcamalar = () => {
 
   return (
     <>
-      {harcamaData.map((veri) => {
+      {harcamalarVeri.map((veri) => {
         return (
           <div
             key={veri.id}
@@ -287,7 +287,7 @@ const Harcamalar = () => {
                       </div>
                     </div>
                     <div className="col-1 my-2 border-start">
-                    <Link to="/harcama-goruntule" ><span onClick={(e) => goruntule(veri.id)} role="button" className="d-block" style={{color: "#ffbe68bf"}}><i class="fa fa-file"></i></span></Link>
+                    <Link to="/harcama-goruntule" ><span onClick={(e) => goruntule(veri.id)} role="button" className="d-block" style={{color: "#ffbe68bf"}}><i className="fa fa-file"></i></span></Link>
                     </div>
                   </div>
                 </div>

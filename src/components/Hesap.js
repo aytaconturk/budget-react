@@ -7,7 +7,7 @@ import {
   AccordionItem,
 } from "reactstrap";
 
-const Hesap = () => {
+const Hesap = (props) => {
   const [harcamaTutari, setHarcamaTutari] = useState(0);
   const [gelirTutari, setGelirTutari] = useState(0);
   const [toplamBakiye, setToplamBakiye] = useState(0);
@@ -50,6 +50,12 @@ const Hesap = () => {
     }
   };
 
+  const harcamaTipi = (tip) => {
+    if(typeof(props.harcamaTipi === "function")){
+        props.harcamaTipi(tip)
+    } 
+  }
+
   return (
     <div className="balance">
       <Accordion open={openAccordion} toggle={toggleAccordion} className="mb-1">
@@ -78,13 +84,14 @@ const Hesap = () => {
                 className="badge badge-success"
                 data-toggle="modal"
                 data-target="#incomeModal"
+                onClick={() => harcamaTipi(1)}
               >
                 {gelirTutari}₺
               </span>
             </div>
             <div className="col-6">
               <h5 className="card-title mb-2">Harcama</h5>
-              <span className="badge badge-danger">{harcamaTutari}₺</span>
+              <span type="button" className="badge badge-danger" onClick={() => harcamaTipi(0)}>{harcamaTutari}₺</span>
             </div>
           </div>
           </AccordionBody>
