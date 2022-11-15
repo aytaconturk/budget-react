@@ -186,12 +186,12 @@ const harcamaData = [
   }
 ]
 
-const Harcamalar = () => {
+const Harcamalar = (props) => {
   const [harcamalarVeri, setHarcamalarVeri] = useState([]);
 
   const veri = (harcamaTipi) =>
     new Promise((resolve) => {
-      let url = "/harcamalar/harcama-listesi/" + 0;
+      let url = "/harcamalar/harcama-listesi/" + harcamaTipi;
 
       api()
         .get(url)
@@ -202,8 +202,8 @@ const Harcamalar = () => {
     });
 
   useEffect(() => {
-    veri();
-  }, []);
+    veri(props.harcamaTipi);
+  }, [props.harcamaTipi]);
 
   console.log("harcamalarVeri: ", harcamalarVeri);
 
