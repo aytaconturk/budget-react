@@ -1,35 +1,37 @@
-import Harcamalar from "./components/Harcamalar";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import AnaSayfa from "./components/AnaSayfa";
 import Menu from "./components/Menu";
-import Hesap from "./components/Hesap";
-import TarihFiltreleme from "./components/TarihFiltreleme";
-import { useState } from "react";
+import NotFound from "./NotFound";
+import HarcamaEklemeSayfasi from "./sayfalar/HarcamaEklemeSayfasi";
+import HarcamaGoruntulemeSayfasi from "./sayfalar/HarcamaGoruntulemeSayfasi";
+import Hesaplar from "./sayfalar/Hesaplar";
+import Kategoriler from "./sayfalar/Kategoriler";
+import Kullanici from "./sayfalar/Kullanici";
 
 function App() {
-
-  const [harcamaTipiDegeri, setHarcamaTipiDegeri] = useState(-1);
-
-  console.log("harcamaTipiDegeri: ", harcamaTipiDegeri)
-
-  const harcamaTipi = (e) => {
-    setHarcamaTipiDegeri(e)
-    
-  }
-
   return (
-    <div className="App">
-      <div className="main">
-        <Menu />
-        <div className="content">
-          <div className="container-sm pt-3">
-            <Hesap harcamaTipi={harcamaTipi} />
-            <div className="content-list mt-2">
-              <TarihFiltreleme />
-              <Harcamalar harcamaTipi={harcamaTipiDegeri} />
-            </div>
+    <Router>
+      <div className="App">
+        <div className="main">
+          <Menu />
+
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<AnaSayfa />} />
+              <Route path="/harcama-ekle" element={<HarcamaEklemeSayfasi />} />
+              <Route
+                path="/harcama-goruntule"
+                element={<HarcamaGoruntulemeSayfasi />}
+              />
+              <Route path="/kategoriler" element={<Kategoriler />} />
+              <Route path="/hesaplar" element={<Hesaplar />} />
+              <Route path="/kullanici" element={<Kullanici />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
