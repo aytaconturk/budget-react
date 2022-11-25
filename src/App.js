@@ -18,6 +18,7 @@ function App() {
           <div className="content">
             <Routes>
               <Route path="/" element={<AnaSayfa />} />
+              <Route path="/budget-react" element={<AnaSayfa />} />
               <Route path="/harcama-ekle" element={<HarcamaEklemeSayfasi />} />
               <Route
                 path="/harcama-goruntule"
