@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/budget-react/static/css/main.47907890.css",
+    "main.js": "/budget-react/static/js/main.ac9f1593.js",
+    "static/js/787.5b36b14d.chunk.js": "/budget-react/static/js/787.5b36b14d.chunk.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/budget-react/static/media/fontawesome-webfont.6878d55e3615ccf40c38.svg",
+    "static/media/fontawesome-webfont.eot": "/budget-react/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/budget-react/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/budget-react/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/budget-react/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/enpara1.svg": "/budget-react/static/media/enpara1.ba68c76e30eda47b02624da1a1451ae3.svg",
+    "static/media/enpara.svg": "/budget-react/static/media/enpara.fd19fc743e16fcf2163329b88a6e5dff.svg",
+    "index.html": "/budget-react/index.html",
+    "main.47907890.css.map": "/budget-react/static/css/main.47907890.css.map",
+    "main.ac9f1593.js.map": "/budget-react/static/js/main.ac9f1593.js.map",
+    "787.5b36b14d.chunk.js.map": "/budget-react/static/js/787.5b36b14d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47907890.css",
+    "static/js/main.ac9f1593.js"
+  ]
+}
