@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AnaSayfa from "./components/AnaSayfa";
 import Menu from "./components/Menu";
 import NotFound from "./NotFound";
