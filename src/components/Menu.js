@@ -1,6 +1,14 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
+
+    const isLoggedIn =  useSelector(x => x.loginReducer.isLoggedIn);
+
+    if(!isLoggedIn){
+        return null;
+    }
+
     return (
         <div className="header">
             <nav className="nav justify-content-around menu">
