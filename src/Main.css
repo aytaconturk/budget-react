@@ -19,6 +19,7 @@ body {
     max-width: 600px;
     bottom: 0;
     z-index: 999;
+    padding-bottom: 50px;
 }
 
 .header .menu {
